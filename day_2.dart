@@ -53,6 +53,7 @@ void main() {
   bool x = true;
   bool y = false;
   print('Logical AND: ${x && y}');
+  // ignore: dead_code
   print('Logical OR: ${x || y}');
   print('Logical NOT: ${!x}');
   int c = 20;
