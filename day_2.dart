@@ -1,13 +1,33 @@
+import 'dart:io';
+
 void main() {
   // 1. Data Types
-  int age = 25;
-  double height = 5.9;
-  String name = "MEeT";
-  bool isStudent = true;
-  List<String> fruits = ['apple', 'banana', 'orange'];
-  Map<String, int> ages = {'MEet': 18, 'mit': 30};
+  print('Enter age:');
+  int age = int.parse(stdin.readLineSync()!);
 
-  print('1. Data Types:');
+  print('Enter height:');
+  double height = double.parse(stdin.readLineSync()!);
+
+  print('Enter name:');
+  String name = stdin.readLineSync()!;
+
+  print('Are you a student? (true/false):');
+  bool isStudent = stdin.readLineSync()!.toLowerCase() == 'true';
+
+  print('Enter fruits (comma-separated):');
+  List<String> fruits = stdin.readLineSync()!.split(',');
+
+  print('Enter user (comma-separated key-value pairs, e.g., Meet:18, Mit:30):');
+  Map<String, int> ages = {};
+  List<String> agePairs = stdin.readLineSync()!.split(',');
+  for (var pair in agePairs) {
+    var parts = pair.split(':');
+    if (parts.length == 2) {
+      ages[parts[0].trim()] = int.parse(parts[1].trim());
+    }
+  }
+
+  print('\n1. Data Types:');
   print('Age: $age');
   print('Height: $height');
   print('Name: $name');
@@ -33,7 +53,6 @@ void main() {
   bool x = true;
   bool y = false;
   print('Logical AND: ${x && y}');
-  // ignore: dead_code
   print('Logical OR: ${x || y}');
   print('Logical NOT: ${!x}');
   int c = 20;
@@ -42,7 +61,8 @@ void main() {
   print('\n');
 
   // 3. Control Flow Statements
-  int temperature = 25;
+  print('Enter temperature:');
+  int temperature = int.parse(stdin.readLineSync()!);
 
   print('3. Control Flow Statements:');
   if (temperature > 30) {
@@ -60,13 +80,15 @@ void main() {
    print("\n");
   print("/while loop/");
   int count = 0;
-  while (count < 3) {
+  while (count < 3) 
+  {
     print('Count: $count');
     count++;
   }
    print("\n");
   print("/switch case/");
-  String day = 'Monday';
+  print('Enter a day of the week:');
+  String day = stdin.readLineSync()!;
   switch (day) {
     case 'Monday':
       print('It\'s the start of the week.');
