@@ -1,0 +1,48 @@
+class Gun 
+{
+  List<String> parts = [];//list of gun by (meet ki AMW);
+   //parts name List;
+  void addPart(String part)
+  {
+    parts.add(part);//add parts by name;
+  }
+
+  bool isGunReady() 
+  {
+  
+    return parts.contains('barrel') &&
+        parts.contains('trigger') &&
+        parts.contains('magazine')&&
+        parts.contains('silenser');
+  }
+
+
+  void shoot() 
+  {
+    if (isGunReady()) 
+    {
+
+      print("Gruda is killed!");
+    }
+
+     else {
+      print("Gun is not ready yet. Collect all parts first.");
+    }
+  }
+}
+
+void main() 
+{
+  Gun myGun = Gun();
+
+  // add gunparts by name;
+  myGun.addPart('barrel');
+  myGun.addPart('trigger');
+  myGun.addPart('magazine');
+  myGun.addPart('silenser');
+  myGun.addPart('jack');
+
+  // just kill gruda;
+  myGun.shoot();
+}
+
